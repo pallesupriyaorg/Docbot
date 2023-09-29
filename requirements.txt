@@ -12,4 +12,4 @@ pypdf
 python-dotenv
 replicate
 docx2txt
-FAISS
+faiss-cpu
