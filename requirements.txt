@@ -1,0 +1,14 @@
+langchain
+torch
+accelerate
+sentence_transformers
+streamlit_chat
+streamlit
+chromadb
+tiktoken
+ctransformers
+huggingface_hub
+pypdf
+python-dotenv
+replicate
+docx2txt
