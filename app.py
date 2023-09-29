@@ -6,7 +6,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.llms import CTransformers
 from langchain.llms import Replicate
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import Chroma
+from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.document_loaders import PyPDFLoader
 from langchain.document_loaders import TextLoader
@@ -102,7 +102,7 @@ def main():
       embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2',
                                      model_kwargs={'device':"cpu"})
       
-      vectordb=Chroma.from_documents(text_chunks,embedding=embeddings)
+      vectordb=FAISS.from_documents(text_chunks,embedding=embeddings)
       
       chain = create_conversational_chain(vectordb)
       
