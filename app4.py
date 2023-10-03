@@ -61,7 +61,7 @@ def display_chat_history(chain):
 def create_conversational_chain(vector_store):
     load_dotenv()
     # Create llm
-    model_id = "meta-llama/Llama-2-7b-chat-hf"
+    model_id = "codellama/CodeLlama-7b-hf"
     llm = HuggingFacePipeline.from_model_id(model_id=model_id,
                                             task="text2text-generation",
                                             model_kwargs={"temperature": 0, "max_length": 1000},)
