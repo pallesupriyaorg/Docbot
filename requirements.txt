@@ -5,6 +5,7 @@ accelerate
 sentence_transformers
 streamlit_chat
 streamlit
+chromadb
 faiss-cpu
 tiktoken
 ctransformers
