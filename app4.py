@@ -61,14 +61,12 @@ def display_chat_history(chain):
 def create_conversational_chain(vector_store):
     load_dotenv()
     # Create llm
-    model_id = "codellama/CodeLlama-7b-hf"
-    llm = HuggingFacePipeline.from_model_id(model_id=model_id,
-                                            task="text2text-generation",
-                                            model_kwargs={"temperature": 0, "max_length": 1000},)
-    #llm = CTransformers(model="llama-2-7b-chat.ggmlv3.q4_0.bin",
-                        #streaming=True, 
-                        #callbacks=[StreamingStdOutCallbackHandler()],
-                        #model_type="llama", config={'max_new_tokens': 500, 'temperature': 0.01})
+    
+
+    llm = CTransformers(model="codellama/CodeLlama-7b-hf",
+                        streaming=True, 
+                        callbacks=[StreamingStdOutCallbackHandler()],
+                        model_type="llama", config={'max_new_tokens': 500, 'temperature': 0.01})
     #llm = Replicate(
         #streaming = True,
         #model = "meta/llama-2-7b:527827021d8756c7ab79fde0abbfaac885c37a3ed5fe23c7465093f0878d55ef", 
