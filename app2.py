@@ -5,7 +5,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.llms import CTransformers
 from langchain.llms import Replicate
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import FAISS
+from langchain.vectorstores import Chroma
 from langchain.memory import ConversationBufferMemory
 from langchain.document_loaders import PyPDFLoader
 from langchain.document_loaders import TextLoader
@@ -113,7 +113,7 @@ def main():
                                            model_kwargs={'device': 'cpu'})
 
         # Create vector store
-        vector_store = FAISS.from_documents(text_chunks, embedding=embeddings)
+        vector_store = Chroma.from_documents(text_chunks, embedding=embeddings)
 
         # Create the chain object
         chain = create_conversational_chain(vector_store)
