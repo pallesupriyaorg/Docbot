@@ -2,6 +2,8 @@ import streamlit as st
 from streamlit_chat import message
 from langchain.chains import ConversationalRetrievalChain
 from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.llms import HuggingFacePipeline
+from langchain import PromptTemplate, LLMChain
 from langchain.llms import CTransformers
 from langchain.llms import Replicate
 from langchain.text_splitter import CharacterTextSplitter
@@ -59,6 +61,10 @@ def display_chat_history(chain):
 def create_conversational_chain(vector_store):
     load_dotenv()
     # Create llm
+    model_id = "meta-llama/Llama-2-7b-chat-hf"
+    llm = HuggingFacePipeline.from_model_id(model_id=model_id,
+                                            task="text2text-generation",
+                                            model_kwargs={"temperature": 0, "max_length": 1000},)
     #llm = CTransformers(model="llama-2-7b-chat.ggmlv3.q4_0.bin",
                         #streaming=True, 
                         #callbacks=[StreamingStdOutCallbackHandler()],
