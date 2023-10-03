@@ -14,4 +14,4 @@ pypdf
 python-dotenv
 replicate
 docx2txt
-sqlite3 >= 3.35.0.
+pysqlite3
