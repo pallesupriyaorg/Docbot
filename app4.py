@@ -63,15 +63,15 @@ def create_conversational_chain(vector_store):
     # Create llm
     
 
-    llm = CTransformers(model="codellama/CodeLlama-7b-hf",
-                        streaming=True, 
-                        callbacks=[StreamingStdOutCallbackHandler()],
-                        model_type="llama", config={'max_new_tokens': 500, 'temperature': 0.01})
-    #llm = Replicate(
-        #streaming = True,
-        #model = "meta/llama-2-7b:527827021d8756c7ab79fde0abbfaac885c37a3ed5fe23c7465093f0878d55ef", 
-        #callbacks=[StreamingStdOutCallbackHandler()],
-        #input = {"temperature": 0.01, "max_length" :500,"top_p":1})
+    #llm = CTransformers(model="llama-2-7b-chat.ggmlv3.q4_0.bin",
+                        #streaming=True, 
+                        #callbacks=[StreamingStdOutCallbackHandler()],
+                        #model_type="llama", config={'max_new_tokens': 500, 'temperature': 0.01})
+    llm = Replicate(
+        streaming = True,
+        model = "meta/llama-2-7b:527827021d8756c7ab79fde0abbfaac885c37a3ed5fe23c7465093f0878d55ef", 
+        callbacks=[StreamingStdOutCallbackHandler()],
+        input = {"temperature": 0.01, "max_length" :500,"top_p":1})
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
     chain = ConversationalRetrievalChain.from_llm(llm=llm, chain_type='stuff',
