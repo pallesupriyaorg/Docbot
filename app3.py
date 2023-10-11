@@ -1,4 +1,4 @@
-import streamlit as st
+'''import streamlit as st
 from streamlit_chat import message
 from langchain.chains import ConversationalRetrievalChain
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -124,4 +124,4 @@ def main():
         display_chat_history(chain)
 
 if __name__ == "__main__":
-    main()
+    main()'''
