@@ -69,7 +69,7 @@ def create_conversational_chain(vector_store):
                         #model_type="llama", config={'max_new_tokens': 500, 'temperature': 0.01})
     llm = Replicate(
         streaming = True,
-        model =   "mistralai/mistral-7b-instruct-v0.1:83b6a56e7c828e667f21fd596c338fd4f0039b46bcfa18d973e8e70e455fda70",
+        model =     "meta/llama-2-7b-chat:8e6975e5ed6174911a6ff3d60540dfd4844201974602551e10e9e87ab143d81e",
         callbacks=[StreamingStdOutCallbackHandler()],
         input = {"temperature": 0.01, "max_length" :10000,"top_p":1})
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
