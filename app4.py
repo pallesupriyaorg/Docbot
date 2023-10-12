@@ -71,7 +71,7 @@ def create_conversational_chain(vector_store):
         streaming = True,
         model = "meta/llama-2-7b:527827021d8756c7ab79fde0abbfaac885c37a3ed5fe23c7465093f0878d55ef", 
         callbacks=[StreamingStdOutCallbackHandler()],
-        input = {"temperature": 0.01, "max_length" :10000,"top_p":1})
+        input = {"temperature": 0.01, "max_length" :2048,"top_p":1})
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
     chain = ConversationalRetrievalChain.from_llm(llm=llm, chain_type='stuff',
