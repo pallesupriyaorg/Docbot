@@ -69,7 +69,7 @@ def create_conversational_chain(vector_store):
                         #model_type="llama", config={'max_new_tokens': 500, 'temperature': 0.01})
     llm = Replicate(
         streaming = True,
-        model = "meta/llama-2-70b-chat:02e509c789964a7ea8736978a43525956ef40397be9033abf9fd2badfe68c9e3",
+        model = "mistralai/mistral-7b-instruct-v0.1:83b6a56e7c828e667f21fd596c338fd4f0039b46bcfa18d973e8e70e455fda70",
         callbacks=[StreamingStdOutCallbackHandler()],
         input = {"temperature": 0.01, "max_length" :4096,"top_p":1})
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
@@ -83,7 +83,7 @@ def main():
     load_dotenv()
     # Initialize session state
     initialize_session_state()
-    st.title("Multi-Docs ChatBot using llama2")
+    st.title("Multi-Docs ChatBot using Mistral 7b")
     # Initialize Streamlit
     st.sidebar.title("Document Processing")
     uploaded_files = st.sidebar.file_uploader("Upload files", accept_multiple_files=True)
